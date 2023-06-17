@@ -39,6 +39,7 @@ CREATE TABLE {schema}.{table} (
 );""")
         
         for r in records:
+            r[0] = r[0].replace("'", "\\'")
             sql = f"INSERT INTO {schema}.{table} VALUES ('{r[0]}',{r[1]},{r[2]});"
             print(sql)
             cur.execute(sql)
